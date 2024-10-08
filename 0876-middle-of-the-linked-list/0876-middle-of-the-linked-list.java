@@ -9,20 +9,26 @@
  * }
  */
 class Solution {
-    private int getLength(ListNode head){
+   /* private int getLength(ListNode head){
         int l=0;
         while(head!=null){
             l++;
             head = head.next;
         }
         return l;
-    }
+    }*/
     public ListNode middleNode(ListNode head) {
-        int len = getLength(head);
+      /*  int len = getLength(head);
         for(int i=0;i<(len/2);i++){
             head = head.next;
         }
-        return head;
-        
+        return head;*/
+        ListNode slow = head;
+         ListNode fast = head;
+        while(fast!=null && fast.next!=null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
     }
 }
